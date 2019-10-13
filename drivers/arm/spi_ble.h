@@ -1,10 +1,10 @@
 #pragma once
 
 #include "hal.h"
-#include "spi_ble.c"
 
 /*
  * Notes:
+ *      0. don't include spi_ble.c as it is bad practice and give errors
  *      1. pragma once means all functions here run 1x so commenting out irrelevant functions
  *      2. functions executed in this file are defined in spi_ble.c
  *      3. #include this file in config.h

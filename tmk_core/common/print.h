@@ -74,6 +74,9 @@ extern "C"
 
 #        ifndef TERMINAL_ENABLE
 #            include "chibios/printf.h"
+#        elif SPI_BLE_ENABLE
+#            include "chibios/printf.h"
+#        else
 #        endif
 
 #        ifdef USER_PRINT /* USER_PRINT */

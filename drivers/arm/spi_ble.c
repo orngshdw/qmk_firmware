@@ -4,13 +4,12 @@
 #include "stdlib.h"
 #include "spi_ble.h"
 //#include "ws2812.h"
-
 #define SPI_BLE_ENABLE
 
 #ifdef SPI_BLE_ENABLE
 // #ifdef RGBLIGHT_STM32_SPI
 // #include "ws2812_spi_lookup.h"
-#include "spi_ble_lookup.h"
+  #include "spi_ble_lookup.h"
 
   /*
   * These are currently defined to support STM32 Chips that run at
@@ -81,6 +80,7 @@
     // MOSI pin
     // palSetPadMode(BLE_PORT, BLE_PAD, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
     palSetPadMode(BLE_PORT, BLE_PAD, PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
+
     for(int i = 0; i < RESET_SIZE; i++)
       txbuf[DATA_SIZE+i] = 0x00;
     for (int i=0; i<PREAMBLE_SIZE; i++)
@@ -90,7 +90,7 @@
     spiSelect(&SPI_BLE_DRIVER);                  /* Slave Select assertion.          */
     chThdCreateStatic(LEDS_THREAD_WA, sizeof(LEDS_THREAD_WA), NORMALPRIO, ledsThread, NULL);
 
-    printf("LED Thread going\n");
+    //printf("LED Thread going\n");
 
   }
   /*
